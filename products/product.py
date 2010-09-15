@@ -837,6 +837,8 @@ class Product(WorkflowAware, TagsAware, DynamicFolder):
                             with_reduction=True, pretty=False, prefix=None):
         price = self.get_price_without_tax(id_declination,
                     with_reduction=with_reduction, prefix=prefix)
+        if price is None:
+            return ''
         price = price * self.get_tax_value(prefix=prefix)
         # Format price
         if pretty is True:
