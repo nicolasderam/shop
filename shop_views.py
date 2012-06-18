@@ -512,7 +512,7 @@ class Shop_Login(STLForm):
             return context.come_back(message, goto)
 
         # Check the password is right
-        if not user.authenticate(password, clear=True):
+        if not user.authenticate(password):
             message = ERROR(u'The password is wrong.')
             goto = context.get_referrer()
             return context.come_back(message, goto)
